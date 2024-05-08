@@ -1,0 +1,21 @@
+.detail-conteiner{
+    background: linear-gradient(to bottom, #909, #ddd);
+    margin: 2%;
+    height: 500px;
+    overflow: hidden;
+    border: 1px solid #555;
+    border-radius: 25px;
+    display: flex;
+    align-content: center;
+}
+.card-image{
+    width: 50%;
+}
+.card-image img{
+    margin: 10%;
+    height: 50%;
+}
+.card-detail{
+    width: 50%;
+    margin: 10%;
+}

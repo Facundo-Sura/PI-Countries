@@ -1,0 +1,22 @@
+.card-link{
+    background: #fff;
+    text-align: center;
+    height: 290px;
+    width: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.card-link:hover{
+    box-shadow: 0 4px 8px 0;
+}
+.card-link img{
+    border: none;
+    margin: none;
+    padding: none;
+    width: 100%;
+    height: 150px;
+}
+.card-main h3{
+    margin: 0;
+    padding: 0;
+}

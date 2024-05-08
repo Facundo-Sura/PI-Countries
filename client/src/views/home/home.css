@@ -1,0 +1,54 @@
+.card-conteiner{
+    width: 98%;
+    margin: none;
+    padding: 1%;
+}
+.home-select{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.select-conteiner select{
+    background: #909;
+    color: #fff;
+    border: none;
+    margin: none;
+    padding: none;
+    height: 40px;
+    width: 100%;
+}
+.select-conteiner select:hover{
+    cursor: pointer;
+}
+.boton-paginacion{
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+}
+.boton-paginacion button{
+    width: 130px;
+    height: 40px;
+    border: none;
+    padding: 10px 20px;
+    background: #909;
+    color: #fff;
+}
+.boton-paginacion button:hover{
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+.boton-desacer button{
+    background: #909;
+    color: #fff;
+    width: 130px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+}
+.boton-desacer button:hover{
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}

@@ -1,0 +1,69 @@
+.formContainer{
+    background: linear-gradient(to bottom, #909, #ddd);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .9);
+    width: 50%;
+    height: auto;
+    border: none;
+    border-radius: 25px;
+    margin: 2% auto;
+    padding: 20px;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+}
+.formContainer::placeholder{
+    color: rgb(56, 56, 56);
+}
+.formContainer input, .formContainer select{
+    background: #e4e3e3;
+    color: rgb(56, 56, 56);
+    font-size: 20px;
+    width: 75%;
+    border: none;
+    outline: none;
+}
+.formContainer ul{
+    width: 90%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.formContainer li{
+    display: flex;
+    justify-content: center;
+    padding: 0 0 45px 0;
+    width: 30%;
+}
+.activityCreated{
+    background: #bebbbb2f;
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 25px;
+}
+.activityCreated li{
+    padding: 20px;
+    display: flex;
+}
+.formContainer button {
+    background: #909;
+    color: #fff;
+    width: fit-content;
+    margin: 0 0 20px 0;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+}
+.formContainer button:hover{
+    cursor: pointer;
+    background: #d0d;
+}
+.paisSelect button{
+    height: 1%;
+    width: 1%;
+    border: none;
+    border-radius: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

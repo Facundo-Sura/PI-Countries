@@ -1,0 +1,46 @@
+.nav-conteiner{
+    background: #909;
+    width: 98%;
+    border: none;
+    margin: none;
+    padding: 1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.option-conteiner{
+    display: flex;
+    align-items: center;
+}
+.nav-conteiner a{
+    color: #fff;
+    text-decoration: none;
+}
+.option-conteiner form{
+    display: flex;
+    align-items: center;
+}
+.option-conteiner button{
+    background: #909;
+    color: #fff;
+    border: none;
+    margin: 0 10px;
+    width: 200px;
+    height: 30px;
+}
+.option-conteiner button:hover{
+    cursor: pointer;
+    background: #b1b;
+}
+.option-conteiner input{
+    background: #707;
+    color: #fff;
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 30px;
+}
+.option-conteiner input:focus{
+    background: #fff;
+    color: #909;
+}
