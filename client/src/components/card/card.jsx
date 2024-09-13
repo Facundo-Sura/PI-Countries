@@ -3,7 +3,7 @@ import "./card.css";
 
 const Card = ({ flags, name, continents, id }) => {
   return (
-      <Link to={`${id}`}>
+      <Link className="linkCard" to={`${id}`}>
         <div className="card-link">
           <div className="card-header">
           <img src={flags} alt={name} />

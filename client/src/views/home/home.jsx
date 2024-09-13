@@ -21,6 +21,7 @@ function Home() {
   const [selectOrden, setSelectOrden] = useState("");
   const [selectPoblacion, setSelectPoblacion] = useState("");
   const [desFilters, setDesFilters] = useState(false);
+  const [firstState, setState] = useState(false);
 
   //TRAER A LOS PAISES
   function handleChange(e) {
@@ -37,6 +38,11 @@ function Home() {
     dispatch(allActivities());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (allCountries.length !== 0) {
+      setState(true);
+    }
+  }, [allCountries]);
   // FILTRADOS
 
   useEffect(() => {
@@ -46,7 +52,13 @@ function Home() {
       filteredCont = filteredCont.filter((country) =>
         country.name.toLowerCase().includes(searchString.toLowerCase())
       );
+      if (filteredCont.length === 0) {
+        alert("No existe el pais buscado");
+        filteredCont=allCountries;
+      }
+
     }
+    console.log(allCountries.length);
 
     if (selectedActivity !== "") {
       const filteredActivity = activities.find(
@@ -193,12 +205,11 @@ function Home() {
               <option value="des">Descendente</option>
             </select>
           </div>
-        {desFilters && (
-          <div className="boton-desacer">
-            <button onClick={resetFilters}>Deshacer filtros</button>
-          </div>
-        )}
-
+          {desFilters && (
+            <div className="boton-desacer">
+              <button onClick={resetFilters}>Deshacer filtros</button>
+            </div>
+          )}
         </div>
         <Cards allCountries={filtered.slice(currentPage, currentPage + 10)} />
       </div>

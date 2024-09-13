@@ -17,6 +17,11 @@
     height: 150px;
 }
 .card-main h3{
+    color: red;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+}
+.linkCard{
+    text-decoration: none;
 }

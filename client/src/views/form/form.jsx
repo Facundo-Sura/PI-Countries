@@ -247,7 +247,7 @@ function Form() {
                 input.countries.map((selectedCountry, index) => (
                   <li key={index}>
                     {selectedCountry}
-                    <button
+                    <button type="button"
                       onClick={() => handleRemoveCountry(selectedCountry)}
                     >
                       x
