@@ -7,7 +7,7 @@ const mapApi = (array) => {
     return {
       id: country.cca3,
       name: country.name.common,
-      flags: country.flags?.svg,
+      flags: country.flags?.png,
       continents: country.continents[0],
       subregion: country.subregion || "",
       capital: Array.isArray(country.capital) ? country.capital[0] : "",
