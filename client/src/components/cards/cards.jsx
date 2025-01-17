@@ -1,10 +1,10 @@
 import Card from "../card/card";
-import "./cards.css";
+import styles from "./cards.module.css";
 
 function Cards({allCountries}) {
 
   return (
-  <div className='cards-cont'>
+  <div className={styles.container}>
      {allCountries.map((country) => (
         <Card 
           key={country.id}

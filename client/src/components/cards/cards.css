@@ -1,8 +1,0 @@
-.cards-cont{
-    margin: 50px;
-    display: grid;
-    grid-template-columns: 220px 220px 220px 220px 220px;
-    grid-template-rows: 300px 300px;
-    justify-content: center;
-    align-items: center;
-}

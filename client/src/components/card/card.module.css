@@ -1,0 +1,30 @@
+.container {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.content {
+    background: red;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.header {
+    background: red;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    border-radius: 25px;
+    outline: none;
+    overflow: hidden;
+}
+
+.image:hover {
+    transition: all 500ms;
+    transform: scale(1.2);
+}
