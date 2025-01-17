@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import validate from "./validation";
 import Navbar from "../../components/navbar/navbar";
-import "./form.css";
 
 function Form() {
   const dispatch = useDispatch();

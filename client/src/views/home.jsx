@@ -4,10 +4,9 @@ import {
   getCountries,
   getCountryByName,
   allActivities,
-} from "../../redux/actions";
-import Cards from "../../components/cards/cards";
-import Navbar from "../../components/navbar/navbar";
-import "./home.css";
+} from "../redux/actions";
+import Cards from "../components/cards/cards";
+import Navbar from "../components/navbar/navbar";
 
 function Home() {
   const dispatch = useDispatch();
