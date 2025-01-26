@@ -4,13 +4,13 @@ import styles from "./card.module.css";
 const Card = ({ flags, name, continents, id }) => {
   return (
       <Link className={styles.container} to={`${id}`}>
-        <div className={styles.content}>
-          <div className={styles.header}>
-          <img className={styles.image} src={flags} alt={name} />
+        <div className="col">
+          <div className="card">
+          <img className="card-img-top" src={flags} alt={name} />
           </div>
-          <div className={styles.main}>
-            <h3>{name}</h3>
-            <p>{continents}</p>
+          <div className="card-body">
+            <h3 className="card-title text-light">{name}</h3>
+            <p className="card-text text-light">{continents}</p>
           </div>
         </div>
       </Link>

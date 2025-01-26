@@ -1,21 +1,18 @@
 import Card from "../card/card";
-import styles from "./cards.module.css";
 
-function Cards({allCountries}) {
-
+function Cards({ allCountries }) {
   return (
-  <div className={styles.container}>
-     {allCountries.map((country) => (
-        <Card 
+    <div className="row row-cols-1 row-cols-md-5 g-5">
+      {allCountries.map((country) => (
+        <Card
           key={country.id}
-          id={country.id} 
-          flags={country.flags} 
-          name={country.name} 
+          id={country.id}
+          flags={country.flags}
+          name={country.name}
           continents={country.continents}
-      
-          />
+        />
       ))}
-  </div>
+    </div>
   );
 }
 

@@ -53,9 +53,8 @@ function Home() {
       );
       if (filteredCont.length === 0) {
         alert("No existe el pais buscado");
-        filteredCont=allCountries;
+        filteredCont = allCountries;
       }
-
     }
     console.log(allCountries.length);
 
@@ -159,62 +158,76 @@ function Home() {
   ]);
 
   return (
-    <div className="home-cont">
+    <div className="">
       <div>
         <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
 
-      <div className="card-conteiner">
-        <div className="home-select">
-          <div className="select-conteiner">
-            <select value={selectContinent} onChange={handleContinentChange}>
-              <option value="">Todos los continentes</option>
-              <option value="Africa">Africa</option>
-              <option value="South America">America del Sur</option>
-              <option value="North America">America del Norte</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europa</option>
-              <option value="Oceania">Oceanía</option>
-            </select>
-          </div>
-          <div className="select-conteiner">
-            <select value={selectedActivity} onChange={handleActivitiesChange}>
-              <option value="">Todas las actividades</option>
-              {activities.map((activity) => (
-                <option key={activity.id} value={activity.name}>
-                  {activity.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="select-conteiner">
-            <select value={selectOrden} onChange={handleOrderChange}>
-              <option value="">Orden Alfabetico</option>
-              <option value="asc">Ascendente</option>
-              <option value="des">Descendente</option>
-            </select>
-          </div>
-          <div className="select-conteiner">
-            <select
-              value={selectPoblacion}
-              onChange={handleOrdenPoblacionChange}
-            >
-              <option value="">Orden por poblacion</option>
-              <option value="asc">Ascendente</option>
-              <option value="des">Descendente</option>
-            </select>
-          </div>
+      <div className="">
+        <div className="d-flex justify-content-evenly m-2">
+          <select
+            className="form-select form-select-sm w-25 m-1"
+            value={selectContinent}
+            onChange={handleContinentChange}
+          >
+            <option value="">Todos los continentes</option>
+            <option value="Africa">Africa</option>
+            <option value="South America">America del Sur</option>
+            <option value="North America">America del Norte</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europa</option>
+            <option value="Oceania">Oceanía</option>
+          </select>
+          <select
+            className="form-select form-select-sm w-25 m-1"
+            value={selectedActivity}
+            onChange={handleActivitiesChange}
+          >
+            <option value="">Todas las actividades</option>
+            {activities.map((activity) => (
+              <option key={activity.id} value={activity.name}>
+                {activity.name}
+              </option>
+            ))}
+          </select>
+          <select
+            className="form-select form-select-sm w-25 m-1"
+            value={selectOrden}
+            onChange={handleOrderChange}
+          >
+            <option value="">Orden Alfabetico</option>
+            <option value="asc">Ascendente</option>
+            <option value="des">Descendente</option>
+          </select>
+          <select
+            className="form-select form-select-sm w-25 m-1"
+            value={selectPoblacion}
+            onChange={handleOrdenPoblacionChange}
+          >
+            <option value="">Orden por poblacion</option>
+            <option value="asc">Ascendente</option>
+            <option value="des">Descendente</option>
+          </select>
+        </div>
+        <div className="w-100 text-center">
           {desFilters && (
-            <div className="boton-desacer">
-              <button onClick={resetFilters}>Deshacer filtros</button>
-            </div>
+            <button
+              className="btn btn-secondary mb-2"
+              onClick={resetFilters}
+            >
+              Deshacer filtros
+            </button>
           )}
         </div>
         <Cards allCountries={filtered.slice(currentPage, currentPage + 10)} />
       </div>
-      <div className="boton-paginacion">
-        <button onClick={prevPage}>Anterior</button>
-        <button onClick={nextPage}>Siguiente</button>
+      <div className="pagination justify-content-center">
+        <button className="page-link" onClick={prevPage}>
+          Anterior
+        </button>
+        <button className="page-link" onClick={nextPage}>
+          Siguiente
+        </button>
       </div>
     </div>
   );

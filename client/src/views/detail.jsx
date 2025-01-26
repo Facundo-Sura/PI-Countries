@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/navbar/navbar";
 
 function Detail() {
   const params = useParams();
@@ -25,18 +26,26 @@ function Detail() {
   return (
     <div>
       <Navbar />
-      <div className="detail-conteiner">
-        <div className="card-image">
-          <img src={country?.flags} alt={country.name} />
-        </div>
-        <div className="card-detail">
-          <h2>
-            {country?.name} ({country?.id}) {country?.continents}
-          </h2>
-          <h5>Capital: {country?.capital}</h5>
-          <h5>Subregión: {country?.subregion}</h5>
-          <h5>Área: {country?.area}</h5>
-          <h5>Población: {country?.population}</h5>
+      <div className="card mb-3">
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img
+              className="img-fluid rounded-start"
+              src={country?.flags}
+              alt={country.name}
+            />
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h2 className="card-title">
+                {country?.name} ({country?.id}) {country?.continents}
+              </h2>
+              <h5 className="card-text">Capital: {country?.capital}</h5>
+              <h5 className="card-text">Subregión: {country?.subregion}</h5>
+              <h5 className="card-text">Área: {country?.area}</h5>
+              <h5 className="card-text">Población: {country?.population}</h5>
+            </div>
+          </div>
         </div>
       </div>
     </div>
