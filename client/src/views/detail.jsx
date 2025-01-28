@@ -24,9 +24,9 @@ function Detail() {
   }, [params?.id]);
 
   return (
-    <div id="detail" className="bg-dark w-100 h-100">
+    <div id="detail" className="w-100 h-100">
       <Navbar />
-      <div id="custom-bg" className="card mb-3 text-white m-5">
+      <div id="custom-bg" className="bg-dark card mb-3 text-white m-5">
         <div className="row g-0">
           <div className="col-md-4">
             <img

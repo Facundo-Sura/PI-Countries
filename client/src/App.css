@@ -8,9 +8,6 @@ body{
 
 #detail {
     min-height: 100vh;
-}
-
-#custom-bg {
     background-image: url('/countries.png');
     background-size: cover;
     background-position: center;
