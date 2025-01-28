@@ -7,6 +7,7 @@ import {
 } from "../redux/actions";
 import Cards from "../components/cards/cards";
 import Navbar from "../components/navbar/navbar";
+import Footer from "../components/footer/Footer";
 
 function Home() {
   const dispatch = useDispatch();
@@ -159,10 +160,7 @@ function Home() {
 
   return (
     <div className="w-100 h-100 overflow-x-hidden bg-dark bg-gradient">
-      <div>
-        <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
-      </div>
-
+      <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       <div className="">
         <div className="bg-white d-flex justify-content-evenly">
           <select
@@ -211,10 +209,7 @@ function Home() {
         </div>
         <div className="w-100 bg-white text-center">
           {desFilters && (
-            <button
-              className="btn btn-secondary mb-2"
-              onClick={resetFilters}
-            >
+            <button className="btn btn-secondary mb-2" onClick={resetFilters}>
               Deshacer filtros
             </button>
           )}
@@ -229,6 +224,7 @@ function Home() {
           Siguiente
         </button>
       </div>
+      <Footer />
     </div>
   );
 }

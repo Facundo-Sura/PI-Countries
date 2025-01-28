@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar/navbar";
+import Footer from "../components/footer/Footer";
 
 function Detail() {
   const params = useParams();
@@ -47,6 +48,9 @@ function Detail() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-100 position-absolute bottom-0 start-0">
+        <Footer />
       </div>
     </div>
   );
