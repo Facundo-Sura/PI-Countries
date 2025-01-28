@@ -124,12 +124,12 @@ function Form() {
   console.log(createdActivityInfo);
 
   return (
-    <div>
+    <div id="form">
       <Navbar />
-      <div id="form" className="w-100 overdlow-y-hidden">
+      <div className="w-100">
         <video
           id="form-vid"
-          className="w-50 h-100 m-0 p-0 position-absolute top-0 start-0 z-0"
+          className="w-100 position-absolute z-0 overflow-y-hidden"
           autoPlay
           muted
           loop
