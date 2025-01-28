@@ -24,13 +24,13 @@ function Detail() {
   }, [params?.id]);
 
   return (
-    <div>
+    <div id="detail" className="bg-dark w-100 h-100">
       <Navbar />
-      <div className="card mb-3">
+      <div id="custom-bg" className="card mb-3 text-white m-5">
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              className="img-fluid rounded-start"
+              className="img-fluid rounded-start w-100"
               src={country?.flags}
               alt={country.name}
             />
