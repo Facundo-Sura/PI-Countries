@@ -1,4 +1,4 @@
-body{
+body {
     border: 0;
     margin: 0;
     padding: 0;
@@ -11,4 +11,4 @@ body{
     background-image: url('/countries.png');
     background-size: cover;
     background-position: center;
-  }
+}

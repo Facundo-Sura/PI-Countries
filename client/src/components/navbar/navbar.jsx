@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar({ handleChange, handleSubmit }) {
   return (
-    <div className="navbar navbar-expand-lg bg-body-tertiary">
+    <div className="navbar navbar-expand-lg bg-body-tertiary z-3">
       <div className="container-fluid">
         <Link className="text-decoration-none" to="/">
           <h1 className="navbar-brand">PI-PAISES</h1>

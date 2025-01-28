@@ -125,38 +125,65 @@ function Form() {
 
   return (
     <div>
-      <div>
-        <Navbar />
-      </div>
-      <div className="formAllCountainer">
-        <form onSubmit={handleSubmit} className="formContainer">
+      <Navbar />
+      <div id="form" className="w-100 overdlow-y-hidden">
+        <video
+          id="form-vid"
+          className="w-50 h-100 m-0 p-0 position-absolute top-0 start-0 z-0"
+          autoPlay
+          muted
+          loop
+          src="/background.mp4"
+        ></video>
+        <form onSubmit={handleSubmit} className="w-50 z-1 mt-3 p-5 bg-white position-absolute top-0 end-0 overflow-y-scroll">
           <h2>CREA TU ACTIVIDAD</h2>
           {showActivityCreated && (
             <div className="activityCreated">
               <p>Actividad creada exitosamente!</p>
               <p>Información de la actividad:</p>
-              <ul>
-                <li>Nombre: {createdActivityInfo.name}</li>
-                <li>Dificultad: {createdActivityInfo.dificulty}</li>
-                <li>Duración: {createdActivityInfo.duration} HS</li>
-                <li>Temporada: {createdActivityInfo.season}</li>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  Nombre: {createdActivityInfo.name}
+                </li>
+                <li className="list-group-item">
+                  Dificultad: {createdActivityInfo.dificulty}
+                </li>
+                <li className="list-group-item">
+                  Duración: {createdActivityInfo.duration} HS
+                </li>
+                <li className="list-group-item">
+                  Temporada: {createdActivityInfo.season}
+                </li>
                 {createdActivityInfo.countries.length > 0 && (
-                  <ul>
-                    <li>Paises:</li>
+                  <ul className="list-group">
+                    <li className="list-group-item list-group-item-action active">
+                      Paises:
+                    </li>
                     {createdActivityInfo.countries.map((country) => (
-                      <li key={country}>{country}.</li>
+                      <li
+                        className="list-group-item list-group-item-action"
+                        key={country}
+                      >
+                        {country}.
+                      </li>
                     ))}
                   </ul>
                 )}
               </ul>
-              <button onClick={() => setShowActivityCreated(false)}>
-                Cerrar
-              </button>
+              <div className="d-grid gap-2">
+                <button
+                  className="btn btn-outline-primary"
+                  onClick={() => setShowActivityCreated(false)}
+                >
+                  Cerrar
+                </button>
+              </div>
             </div>
           )}
-          <div>
-            <label> Nombre de la actividad:</label>
+          <div className="mb-3">
+            <label className="form-label"> Nombre de la actividad:</label>
             <input
+              className="form-control"
               name="name"
               value={input.name}
               onChange={handleChange}
@@ -168,9 +195,10 @@ function Form() {
           </div>
           <div>
             <div>
-              <label> Difucultad de la actividad:</label>
+              <label className="form-label"> Difucultad de la actividad:</label>
             </div>
             <input
+              className="form-control"
               name="dificulty"
               value={input.dificulty}
               onChange={handleChange}
@@ -183,9 +211,10 @@ function Form() {
             </div>
           </div>
           <div>
-            <label> Duracion:</label>
+            <label className="form-label"> Duracion:</label>
             <div>
               <input
+                className="form-control"
                 name="duration"
                 value={input.duration}
                 onChange={handleChange}
@@ -200,9 +229,14 @@ function Form() {
           </div>
           <div>
             <div>
-              <label> Temporada:</label>
+              <label className="form-label"> Temporada:</label>
             </div>
-            <select name="season" value={input.season} onChange={handleChange}>
+            <select
+              className="form-select"
+              name="season"
+              value={input.season}
+              onChange={handleChange}
+            >
               <option value="">Seleccione de temporada</option>
               <option value="Verano">Verano</option>
               <option value="Primavera">Primavera</option>
@@ -213,20 +247,22 @@ function Form() {
           <div>
             {error.season && <span className="error">{error.season}</span>}
           </div>
-          <div className="pais">
-            <label> Pais:</label>
+          <div className="mb-3">
+            <label className="form-label"> Pais:</label>
             <div>
               {error.countries && (
                 <span className="error">{error.countries}</span>
               )}
             </div>
             <input
+              className="form-control"
               type="text"
               placeholder="Buscar país"
               value={searchTerm}
               onChange={handleSearchChange}
             />
             <select
+              className="form-select"
               name="country"
               multiple
               value={input.country}
@@ -239,18 +275,20 @@ function Form() {
               ))}
             </select>
           </div>
-          <div className="paisSelect">
-            <label> Países seleccionados: </label>
-            <ul>
+          <div className="mb-3">
+            <label className="form-label"> Países seleccionados: </label>
+            <ul className="list-group">
               {input.countries.length > 0 ? (
                 input.countries.map((selectedCountry, index) => (
-                  <li key={index}>
-                    {selectedCountry}
-                    <button type="button"
+                  <li className="list-group-item" key={index}>
+                    <button
+                      className="btn btn-outline-primary m-2 py-0"
+                      type="button"
                       onClick={() => handleRemoveCountry(selectedCountry)}
                     >
-                      x
+                      X
                     </button>
+                    {selectedCountry}
                   </li>
                 ))
               ) : (
@@ -258,11 +296,13 @@ function Form() {
               )}
             </ul>
           </div>
-          {Object.keys(error).length === 0 && (
-            <button type="submit" >
-              Crear actividad turística
-            </button>
-          )}
+          <div className="d-grid gap-2">
+            {Object.keys(error).length === 0 && (
+              <button className="btn btn-outline-primary" type="submit">
+                Crear actividad turística
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>
