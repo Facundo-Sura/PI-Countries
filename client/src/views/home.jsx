@@ -158,13 +158,13 @@ function Home() {
   ]);
 
   return (
-    <div className="">
+    <div className="w-100 h-100 overflow-x-hidden bg-dark bg-gradient">
       <div>
         <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
       </div>
 
       <div className="">
-        <div className="d-flex justify-content-evenly m-2">
+        <div className="bg-white d-flex justify-content-evenly">
           <select
             className="form-select form-select-sm w-25 m-1"
             value={selectContinent}
@@ -209,7 +209,7 @@ function Home() {
             <option value="des">Descendente</option>
           </select>
         </div>
-        <div className="w-100 text-center">
+        <div className="w-100 bg-white text-center">
           {desFilters && (
             <button
               className="btn btn-secondary mb-2"
@@ -221,7 +221,7 @@ function Home() {
         </div>
         <Cards allCountries={filtered.slice(currentPage, currentPage + 10)} />
       </div>
-      <div className="pagination justify-content-center">
+      <div className="pagination justify-content-center p-3">
         <button className="page-link" onClick={prevPage}>
           Anterior
         </button>

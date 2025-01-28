@@ -83,7 +83,7 @@ function Landing() {
             alt="go"
             style={{
               transform: `rotate(${rotation}deg)`,
-              transition: "transform 0.2s ease", // Suaviza la rotación
+              transition: "transform 0.5s ease", // Suaviza la rotación
             }}
           />
           <h1 className="z-0 position-absolute top-50 start-50 translate-middle">
