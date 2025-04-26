@@ -1,4 +1,7 @@
 const { Router } = require("express");
+
+const router = Router();
+
 const {
   getCountries,
   getDetailCountries,
@@ -7,12 +10,12 @@ const {
   getActivities,
   createActivities,
 } = require("../handlers/activityHandler");
-
-const router = Router();
+const contactHandler = require("../handlers/contactHandler");
 
 router.get("/countries", getCountries);
 router.get("/countries/:id", getDetailCountries);
-router.post("/activities", createActivities);
 router.get("/activities", getActivities);
+router.post("/activities", createActivities);
+router.post("/contact", contactHandler);
 
 module.exports = router;
