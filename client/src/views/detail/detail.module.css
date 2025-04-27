@@ -1,0 +1,101 @@
+.container {
+    background: url("/countries.png") no-repeat center center fixed;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.card {
+    background: white;
+    max-width: 75%;
+    margin: 150px auto 50px auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    display: flex;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.image {
+    width: 50%;
+    object-fit: cover;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 3px solid #ccc;
+    color: #333;
+}
+
+.content {
+    width: 50%;
+}
+
+.info {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+    .card {
+      max-width: 85%;
+      margin: 120px auto 40px auto;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image, .content {
+      width: 100%;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .info {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* Responsive para móviles grandes */
+  @media (max-width: 768px) {
+    .card {
+      max-width: 90%;
+      margin: 100px auto 30px auto;
+      padding: 1.5rem;
+    }
+  
+    .title {
+      font-size: 1.8rem;
+    }
+  
+    .info {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Responsive para móviles pequeños */
+  @media (max-width: 480px) {
+    .card {
+      max-width: 95%;
+      margin: 80px auto 20px auto;
+      padding: 1rem;
+    }
+  
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .info {
+      font-size: 1rem;
+    }
+  }

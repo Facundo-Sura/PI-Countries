@@ -11,7 +11,6 @@ function Navbar({ handleChange, handleSubmit }) {
 
   return (
     <nav className={styles.container}>
-      <div className={styles.logo}>
         <form className={styles.form} onChange={handleChange}>
           <input className={styles.input} placeholder="País" type="search" />
           <button
@@ -26,8 +25,6 @@ function Navbar({ handleChange, handleSubmit }) {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-      </div>
-
       <div className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
         <Link className={styles.link} to="/">
           BIENVENIDO

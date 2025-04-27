@@ -103,13 +103,16 @@
   }
   
   .form {
-    width: 100%;
+    width: 90%;
     align-self: center;
     align-items: start;
   }
 
   .input,
-  .textarea,
+  .textarea{
+    width: 90%;
+  }
+
   .button {
     width: 100%;
   }
@@ -132,6 +135,6 @@
   .input,
   .textarea,
   .button {
-    width: 100%;
+    margin: 0;
   }
 }
