@@ -30,7 +30,7 @@ function Navbar({ handleChange, handleSubmit }) {
 
       <div className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
         <Link className={styles.link} to="/">
-          PI-PAISES
+          BIENVENIDO
         </Link>
         <Link className={styles.link} to="/countries">
           INICIO

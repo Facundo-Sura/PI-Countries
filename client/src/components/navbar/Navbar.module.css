@@ -7,15 +7,14 @@
   padding: 15px 20px;
   z-index: 10;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 50%;
+  width: 25%;
 }
 
 .hamburger {
@@ -33,8 +32,10 @@
 }
 
 .menu {
+  width: 75%;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   gap: 20px;
 }
 
@@ -61,7 +62,7 @@
   height: 30px;
   border-radius: 5px;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 5px;
   outline: none;
 }
 
@@ -78,7 +79,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .container {
     justify-content: space-between;
   }

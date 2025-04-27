@@ -1,9 +1,11 @@
+import styles from "./form.module.css";
 import { useEffect, useState } from "react";
 import { createActivity } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import validate from "./validation";
 import Navbar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/footer";
 
 function Form() {
   const dispatch = useDispatch();
@@ -68,14 +70,8 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !input.name ||
-      !input.dificulty ||
-      !input.duration ||
-      !input.season ||
-      !input.countries.length === 0
-    ) {
-      console.error("Algunos campos estan sin definir");
+    if (!input.name || !input.dificulty || !input.duration || !input.season || input.countries.length === 0) {
+      console.error("Algunos campos están sin definir");
       return;
     }
     dispatch(createActivity(input))
@@ -91,18 +87,12 @@ function Form() {
       dificulty: "",
       duration: "",
       season: "",
-      countries: "",
+      countries: [],
     });
   };
 
   useEffect(() => {
-    if (
-      input.name !== "" ||
-      input.dificulty !== "" ||
-      input.duration !== "" ||
-      input.season !== "" ||
-      input.countries != []
-    ) {
+    if (input.name || input.dificulty || input.duration || input.season || input.countries.length !== 0) {
       const countryValidate = validate(input);
       setError(countryValidate);
     }
@@ -121,190 +111,86 @@ function Form() {
     country.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  console.log(createdActivityInfo);
-
   return (
-    <div id="form">
+    <div className={styles.container}>
       <Navbar />
-      <div className="w-100">
-        <video
-          id="form-vid"
-          className="w-100 position-absolute z-0 overflow-y-hidden"
-          autoPlay
-          muted
-          loop
-          src="/background.mp4"
-        ></video>
-        <form onSubmit={handleSubmit} className="w-50 z-1 mt-3 p-5 bg-white position-absolute top-0 end-0 overflow-y-scroll">
-          <h2>CREA TU ACTIVIDAD</h2>
-          {showActivityCreated && (
-            <div className="activityCreated">
-              <p>Actividad creada exitosamente!</p>
-              <p>Información de la actividad:</p>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">
-                  Nombre: {createdActivityInfo.name}
-                </li>
-                <li className="list-group-item">
-                  Dificultad: {createdActivityInfo.dificulty}
-                </li>
-                <li className="list-group-item">
-                  Duración: {createdActivityInfo.duration} HS
-                </li>
-                <li className="list-group-item">
-                  Temporada: {createdActivityInfo.season}
-                </li>
-                {createdActivityInfo.countries.length > 0 && (
-                  <ul className="list-group">
-                    <li className="list-group-item list-group-item-action active">
-                      Paises:
-                    </li>
-                    {createdActivityInfo.countries.map((country) => (
-                      <li
-                        className="list-group-item list-group-item-action"
-                        key={country}
-                      >
-                        {country}.
-                      </li>
+      <video className={styles.video} autoPlay muted loop src="/background.mp4"></video>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h2 className={styles.title}>CREA TU ACTIVIDAD</h2>
+
+        {showActivityCreated && (
+          <div className={styles.activityCreated}>
+            <p>¡Actividad creada exitosamente!</p>
+            <ul>
+              <li>Nombre: {createdActivityInfo.name}</li>
+              <li>Dificultad: {createdActivityInfo.dificulty}</li>
+              <li>Duración: {createdActivityInfo.duration} HS</li>
+              <li>Temporada: {createdActivityInfo.season}</li>
+              {createdActivityInfo.countries?.length > 0 && (
+                <>
+                  <p>Países:</p>
+                  <ul>
+                    {createdActivityInfo.countries.map((country, index) => (
+                      <li key={index}>{country}</li>
                     ))}
                   </ul>
-                )}
-              </ul>
-              <div className="d-grid gap-2">
-                <button
-                  className="btn btn-outline-primary"
-                  onClick={() => setShowActivityCreated(false)}
-                >
-                  Cerrar
-                </button>
-              </div>
-            </div>
-          )}
-          <div className="mb-3">
-            <label className="form-label"> Nombre de la actividad:</label>
-            <input
-              className="form-control"
-              name="name"
-              value={input.name}
-              onChange={handleChange}
-              placeholder="Ingrese el nombre de la actividad"
-            />
-            <div>
-              {error.name && <span className="error">{error.name}</span>}
-            </div>
-          </div>
-          <div>
-            <div>
-              <label className="form-label"> Difucultad de la actividad:</label>
-            </div>
-            <input
-              className="form-control"
-              name="dificulty"
-              value={input.dificulty}
-              onChange={handleChange}
-              placeholder="Seleccion de dificultad(Donde 1 es facil y 5 dificil)"
-            />
-            <div>
-              {error.dificulty && (
-                <span className="error">{error.dificulty}</span>
-              )}
-            </div>
-          </div>
-          <div>
-            <label className="form-label"> Duracion:</label>
-            <div>
-              <input
-                className="form-control"
-                name="duration"
-                value={input.duration}
-                onChange={handleChange}
-                placeholder="Seleccion de Duracion en Horas"
-              />
-            </div>
-            <div>
-              {error.duration && (
-                <span className="error">{error.duration}</span>
-              )}
-            </div>
-          </div>
-          <div>
-            <div>
-              <label className="form-label"> Temporada:</label>
-            </div>
-            <select
-              className="form-select"
-              name="season"
-              value={input.season}
-              onChange={handleChange}
-            >
-              <option value="">Seleccione de temporada</option>
-              <option value="Verano">Verano</option>
-              <option value="Primavera">Primavera</option>
-              <option value="Invierno">Invierno</option>
-              <option value="Otoño">Otoño</option>
-            </select>
-          </div>
-          <div>
-            {error.season && <span className="error">{error.season}</span>}
-          </div>
-          <div className="mb-3">
-            <label className="form-label"> Pais:</label>
-            <div>
-              {error.countries && (
-                <span className="error">{error.countries}</span>
-              )}
-            </div>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Buscar país"
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
-            <select
-              className="form-select"
-              name="country"
-              multiple
-              value={input.country}
-              onChange={handleChange}
-            >
-              {filteredCountries.map((country) => (
-                <option key={country.id} value={country.name}>
-                  {country.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="mb-3">
-            <label className="form-label"> Países seleccionados: </label>
-            <ul className="list-group">
-              {input.countries.length > 0 ? (
-                input.countries.map((selectedCountry, index) => (
-                  <li className="list-group-item" key={index}>
-                    <button
-                      className="btn btn-outline-primary m-2 py-0"
-                      type="button"
-                      onClick={() => handleRemoveCountry(selectedCountry)}
-                    >
-                      X
-                    </button>
-                    {selectedCountry}
-                  </li>
-                ))
-              ) : (
-                <li></li>
+                </>
               )}
             </ul>
+            <button className={styles.button} type="button" onClick={() => setShowActivityCreated(false)}>Cerrar</button>
           </div>
-          <div className="d-grid gap-2">
-            {Object.keys(error).length === 0 && (
-              <button className="btn btn-outline-primary" type="submit">
-                Crear actividad turística
-              </button>
-            )}
-          </div>
-        </form>
-      </div>
+        )}
+
+        <label className={styles.label}>Nombre de la actividad:</label>
+        <input className={styles.input} name="name" value={input.name} onChange={handleChange} placeholder="Ingrese el nombre de la actividad" />
+        {error.name && <span className={styles.error}>{error.name}</span>}
+
+        <label className={styles.label}>Dificultad de la actividad:</label>
+        <input className={styles.input} name="dificulty" value={input.dificulty} onChange={handleChange} placeholder="1 (fácil) - 5 (difícil)" />
+        {error.dificulty && <span className={styles.error}>{error.dificulty}</span>}
+
+        <label className={styles.label}>Duración:</label>
+        <input className={styles.input} name="duration" value={input.duration} onChange={handleChange} placeholder="Duración en horas" />
+        {error.duration && <span className={styles.error}>{error.duration}</span>}
+
+        <label className={styles.label}>Temporada:</label>
+        <select className={styles.select} name="season" value={input.season} onChange={handleChange}>
+          <option value="">Seleccione temporada</option>
+          <option value="Verano">Verano</option>
+          <option value="Primavera">Primavera</option>
+          <option value="Invierno">Invierno</option>
+          <option value="Otoño">Otoño</option>
+        </select>
+        {error.season && <span className={styles.error}>{error.season}</span>}
+
+        <label className={styles.label}>País:</label>
+        <input className={styles.input} type="text" placeholder="Buscar país" value={searchTerm} onChange={handleSearchChange} />
+        <select className={styles.select} name="country" multiple value={input.country} onChange={handleChange}>
+          {filteredCountries.map((country) => (
+            <option key={country.id} value={country.name}>{country.name}</option>
+          ))}
+        </select>
+        {error.countries && <span className={styles.error}>{error.countries}</span>}
+
+        <label className={styles.label}>Países seleccionados:</label>
+        <div className={styles.selectedCountries}>
+          {input.countries.length > 0 ? (
+            input.countries.map((selectedCountry, index) => (
+              <div className={styles.selectedCountryItem} key={index}>
+                <button className={styles.removeButton} type="button" onClick={() => handleRemoveCountry(selectedCountry)}>X</button>
+                {selectedCountry}
+              </div>
+            ))
+          ) : (
+            <p>No hay países seleccionados</p>
+          )}
+        </div>
+
+        {Object.keys(error).length === 0 && (
+          <button className={styles.button} type="submit">Crear actividad turística</button>
+        )}
+      </form>
+      <Footer />
     </div>
   );
 }
