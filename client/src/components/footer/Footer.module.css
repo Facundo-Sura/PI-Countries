@@ -86,9 +86,13 @@
     flex-direction: column;
     align-items: start;
     height: auto;
+    margin: 0;
+    padding: 0;
   }
-  
+
   .section {
+    margin: 0;
+    padding: 0;
     width: 100%;
     align-items: start;
   }
@@ -100,23 +104,23 @@
 
   .name {
     align-self: center;
+    margin-bottom: 30px;
   }
-  
+
   .form {
-    width: 90%;
-    align-self: center;
-    align-items: start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .input,
-  .textarea{
+  .textarea,
+  .button {
     width: 90%;
+    margin: 0 auto;
+    border-radius: 3px;
   }
 
-  .button {
-    width: 100%;
-  }
-  
   .link {
     margin-bottom: 12px;
   }
@@ -124,17 +128,21 @@
 
 @media (max-width: 480px) {
   .section {
-    min-width: 90%;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .link,
   .title {
-    margin: 0 5px;
+    margin: 10px 7px;
+    padding: 0;
   }
-  
+
   .input,
   .textarea,
   .button {
-    margin: 0;
+    width: 90%;
+    margin: 5px auto;
+    padding: 9px;
   }
 }
