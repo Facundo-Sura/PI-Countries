@@ -1,5 +1,5 @@
 import {Route, Routes} from "react-router-dom"
-import Landing from "./views/landing";
+import Landing from "./views/land/landing";
 import Home from "./views/home/home";
 import Detail from "./views/detail/detail";
 import Form from "./views/form/form";

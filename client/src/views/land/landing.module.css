@@ -1,0 +1,135 @@
+.container {
+    position: absolute;
+    overflow: hidden;
+    z-index: 0;
+    width: 100%;
+    height: 100vb;
+}
+
+.video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, .5);
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.main {
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(5px);
+    margin: 60px 0 0 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.henry {
+    color: gold;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.button {
+    text-decoration: none;
+    text-align: center;
+}
+
+.name {
+    color: goldenrod;
+    font-size: 60px;
+}
+
+.footer {
+    background: rgba(0, 0, 0, .8);
+    position: absolute;
+    color: rgb(250, 250, 250);
+    text-align: center;
+    font-weight: bolder;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+}
+
+.dev {
+    color: rgb(255, 153, 0);
+    text-decoration: none;
+}
+
+.tapMessage {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+        padding: 5px;
+    }
+
+    .header a {
+        margin: 0 10px;
+    }
+
+    .henry {
+        font-size: 1.2rem;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .image {
+        width: 350px;
+        height: 350px;
+    }
+
+    .main {
+        padding: 10px;
+        min-height: calc(100vh - 100px);
+    }
+}
+
+@media (max-width: 480px) {
+    .henry {
+        font-size: 1rem;
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+}
