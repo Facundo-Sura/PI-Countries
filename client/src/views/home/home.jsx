@@ -1,13 +1,14 @@
+import styles from "./home.module.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCountries,
   getCountryByName,
   allActivities,
-} from "../redux/actions";
-import Cards from "../components/cards/cards";
-import Navbar from "../components/navbar/navbar";
-import Footer from "../components/footer/Footer";
+} from "../../redux/actions";
+import Cards from "../../components/cards/cards";
+import Navbar from "../../components/navbar/navbar";
+import Footer from "../../components/footer/Footer";
 
 function Home() {
   const dispatch = useDispatch();
@@ -159,15 +160,12 @@ function Home() {
   ]);
 
   return (
-    <div className="w-100 h-100 overflow-x-hidden bg-dark bg-gradient">
+    <div className={styles.container}>
       <Navbar handleChange={handleChange} handleSubmit={handleSubmit} />
-      <div className="">
-        <div className="bg-white d-flex justify-content-evenly">
-          <select
-            className="form-select form-select-sm w-25 m-1"
-            value={selectContinent}
-            onChange={handleContinentChange}
-          >
+      <div className={styles.content}>
+        <div className={styles.filters}>
+          <h3>Filtros</h3>
+          <select className={styles.select} value={selectContinent} onChange={handleContinentChange}>
             <option value="">Todos los continentes</option>
             <option value="Africa">Africa</option>
             <option value="South America">America del Sur</option>
@@ -176,11 +174,8 @@ function Home() {
             <option value="Europe">Europa</option>
             <option value="Oceania">Oceanía</option>
           </select>
-          <select
-            className="form-select form-select-sm w-25 m-1"
-            value={selectedActivity}
-            onChange={handleActivitiesChange}
-          >
+
+          <select className={styles.select} value={selectedActivity} onChange={handleActivitiesChange}>
             <option value="">Todas las actividades</option>
             {activities.map((activity) => (
               <option key={activity.id} value={activity.name}>
@@ -188,41 +183,37 @@ function Home() {
               </option>
             ))}
           </select>
-          <select
-            className="form-select form-select-sm w-25 m-1"
-            value={selectOrden}
-            onChange={handleOrderChange}
-          >
+
+          <select className={styles.select} value={selectOrden} onChange={handleOrderChange}>
             <option value="">Orden Alfabetico</option>
             <option value="asc">Ascendente</option>
             <option value="des">Descendente</option>
           </select>
-          <select
-            className="form-select form-select-sm w-25 m-1"
-            value={selectPoblacion}
-            onChange={handleOrdenPoblacionChange}
-          >
-            <option value="">Orden por poblacion</option>
+
+          <select className={styles.select} value={selectPoblacion} onChange={handleOrdenPoblacionChange}>
+            <option value="">Orden por población</option>
             <option value="asc">Ascendente</option>
             <option value="des">Descendente</option>
           </select>
-        </div>
-        <div className="w-100 bg-white text-center">
+
           {desFilters && (
-            <button className="btn btn-secondary mb-2" onClick={resetFilters}>
-              Deshacer filtros
-            </button>
+            <button className={styles.btnfilter} onClick={resetFilters}>Deshacer filtros</button>
           )}
         </div>
-        <Cards allCountries={filtered.slice(currentPage, currentPage + 10)} />
-      </div>
-      <div className="pagination justify-content-center p-3">
-        <button className="page-link" onClick={prevPage}>
-          Anterior
-        </button>
-        <button className="page-link" onClick={nextPage}>
-          Siguiente
-        </button>
+
+        <div className={styles.main}>
+          <Cards allCountries={filtered.slice(currentPage, currentPage + 10)} />
+          <div className={styles.buttons}>
+            <button className={styles.button} onClick={prevPage} disabled={currentPage === 0}>
+              Anterior
+            </button>
+            <button className={styles.button}
+              onClick={nextPage}
+              disabled={currentPage + 10 >= filtered.length}>
+              Siguiente
+            </button>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>
