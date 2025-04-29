@@ -20,7 +20,7 @@ function Landing() {
 
   return (
     <div className={styles.container} onMouseMove={handleMouseMove}>
-      <video src="bgk.mp4" autoPlay muted loop className={styles.video}></video>
+      <video src="landing.mp4" autoPlay muted loop className={styles.video}></video>
 
       {/* cabecera de página */}
       <header className={styles.header}>

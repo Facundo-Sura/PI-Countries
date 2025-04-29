@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     min-height: 100vh;
-    background: url("./countries.png") no-repeat center center fixed;
+    background: url("/home.jpg") no-repeat center center fixed;
     background-size: cover;
     position: relative;
     overflow: hidden;

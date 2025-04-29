@@ -114,7 +114,7 @@ function Form() {
   return (
     <div className={styles.container}>
       <Navbar />
-      <video className={styles.video} autoPlay muted loop src="/background.mp4"></video>
+      <video className={styles.video} autoPlay muted loop src="/form.mp4"></video>
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>CREA TU ACTIVIDAD</h2>
 
