@@ -119,6 +119,7 @@ function Home() {
     if (currentPage > 0) setCurrentPage(currentPage - 10);
   };
 
+  //filtros
   const handleOrdenPoblacionChange = (e) => {
     setSelectPoblacion(e.target.value);
   };
