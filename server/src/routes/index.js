@@ -16,6 +16,6 @@ router.get("/countries", getCountries);
 router.get("/countries/:id", getDetailCountries);
 router.get("/activities", getActivities);
 router.post("/activities", createActivities);
-router.post("/contact", contactHandler);
+router.post(" /contact", contactHandler);
 
 module.exports = router;
